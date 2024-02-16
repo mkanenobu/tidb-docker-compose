@@ -19,10 +19,10 @@ $ git clone https://github.com/pingcap/tidb-docker-compose.git
 $ cd tidb-docker-compose && docker-compose pull # Get the latest Docker images
 $ sudo setenforce 0 # Only on Linux
 $ docker-compose up -d
-$ mysql -h 127.0.0.1 -P 4000 -u root
+$ mysql -h 127.0.0.1 -P 33609 -u root
 ```
 
-* Access monitor at http://localhost:3000 (login with admin/admin if you want to modify grafana)
+* Access monitor at http://localhost: (login with admin/admin if you want to modify grafana)
 
 * Access [tidb-vision](https://github.com/pingcap/tidb-vision) at http://localhost:8010
 
@@ -49,19 +49,19 @@ $ docker service scale tidb_tidb=2
 Docker Swarm automatically load-balances across the containers that implement a scaled service, which you can see if you execute `select @@hostname` several times:
 
 ```bash
-$ mysql -h 127.0.0.1 -P 4000 -u root -te 'select @@hostname'
+$ mysql -h 127.0.0.1 -P 33609 -u root -te 'select @@hostname'
 +--------------+
 | @@hostname   |
 +--------------+
 | 340092e0ec9e |
 +--------------+
-$ mysql -h 127.0.0.1 -P 4000 -u root -te 'select @@hostname'
+$ mysql -h 127.0.0.1 -P 33609 -u root -te 'select @@hostname'
 +--------------+
 | @@hostname   |
 +--------------+
 | e6f05ffe6274 |
 +--------------+
-$ mysql -h 127.0.0.1 -P 4000 -u root -te 'select @@hostname'
+$ mysql -h 127.0.0.1 -P 33609 -u root -te 'select @@hostname'
 +--------------+
 | @@hostname   |
 +--------------+

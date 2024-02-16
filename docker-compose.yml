@@ -116,7 +116,7 @@ services:
   tidb:
     image: pingcap/tidb:latest
     ports:
-      - "4000:4000"
+      - "33609:4000"
       - "10080:10080"
     volumes:
       - ./config/tidb.toml:/tidb.toml:ro
@@ -143,7 +143,7 @@ services:
       SPARK_MASTER_WEBUI_PORT: 8080
     ports:
       - "7077:7077"
-      - "8080:8080"
+      - "33611:8080"
     depends_on:
       - "tikv0"
       - "tikv1"
@@ -206,5 +206,5 @@ services:
       - ./config/dashboards:/tmp/dashboards
       - ./data/grafana:/var/lib/grafana
     ports:
-      - "3000:3000"
+      - "33610:3000"
     restart: on-failure
